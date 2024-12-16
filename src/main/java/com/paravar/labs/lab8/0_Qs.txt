@@ -1,0 +1,46 @@
+What are exceptions?
+When do they occur?
+What are the reasons?
+When exactly does JVM encounter an ab cond?
+   when JVM cannot execute a statement successfully
+What does JVM do in that situation?
+  1) create object of subtype of T on heap
+  2) alter the flow of control
+  
+Types of ab cond? Errors and Exceptions -> RE (unchecked) and non-RE(checked)
+
+What is Throwable class hierarchy?
+How does control flow when JVM encounters an ex.?
+1)JVM halts that statment from ex completely
+2)flow of control is altered
+
+How to recover the flow of control back to normal?
+Syntax of try..catch and their contracts
+	try
+	{
+		…stmt1
+		…stmt2
+	}
+	catch(Exception e)
+	{
+		…
+	}
+How to ensure a Java pgrm never crashes?
+Can you have nested try...catch...finally?
+Can an ex happen in catch/finally?impact on control flow?
+What is correct way to use finally block?
+What are some best practices wrt to exceptions that
+a) we should follow b) we must never do
+What are user facing methods? BP about this?
+What are RuntimeEx? Who should handle them?
+What are checked ex? who and how should they be handled?
+What is a user defined exception? Steps to create it?
+What is throw? throws?
+Differences between a) Exception vs Error b) Exception vs RuntimeException c) throw vs throws 
+What is an Error? How to handle it?
+What is raising an exception?
+What is the use of raising an exception?
+Create an Item class with 2 instance variables String name and double price. Code a method which returns double to getTotalPrice(int quantity) that accepts quantity as an input. How will you use exceptions in this class implementation. Explain.
+
+
+

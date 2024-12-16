@@ -1,0 +1,9 @@
+1. Thread.stop() is deprecated, bcz, it can stop at any time,
+    potentially leaving shared resources in an inconsistent state.
+
+
+2. Thread.suspense() & resume() also deprecated...these may cause deadlock
+
+3. Nowadays, Thread Groups are used less...bcz mostly using Executor Service
+
+4. With Locks(ReentrantLock)...we can avoid deadlock situation ...with proper lock management

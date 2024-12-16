@@ -1,0 +1,44 @@
+What is a package in Java?
+
+1) It is a grouping of related classes & interfaces for a) naming conflict resolution b) modularising code
+c) access control
+-> As a class designer,
+		a) we should put all our classes inside of packages
+How to declare a package?
+-> package <identifier>; should be used as first line in file to make all class defn of that file belong to the package
+What should be the naming convention used to name packages?
+			-> use reverse domain name naming convention
+			-> com.uttara.zoo;
+		*Note: com.uttara.zoo & com.uttara.zoo.nonveg are 2 different package names. There are no parent-child packages in java.
+	
+		b) we should compile with -d option to place the .class files in the package named folder structure
+	
+	-> As a class user (create obj, create ref, subclass, invoke static members),
+		a) if we are using classes that belong to a different package (than the one we are coding), then
+			-> import the classes or
+				How to import?
+					-> Use 
+					import <packagename>.<classname>;
+						or
+					import <packagename>.*;
+					
+			-> use fully qualified class name to refer class names.
+			fqcn -> <package name>.<classname>
+			
+		b) if our class also belongs to the same package of the class that we are using, no need for any imports or using fqcn. But when we compile, we should use -cp option to indicate base folder
+	
+2) It is used as an access specifier
+
+
+
+
+
+
+
+
+
+
+
+
+
+

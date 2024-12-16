@@ -1,0 +1,4 @@
+BufferedWriter 1
+BufferedWriter 2
+
+ after empty line BufferedWriter 3

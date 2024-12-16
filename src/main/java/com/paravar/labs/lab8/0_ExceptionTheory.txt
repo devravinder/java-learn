@@ -1,0 +1,44 @@
+Invoker of method:
+1) First look at javadoc of the method to call. Identify if the method has a 
+throws clause and see what exceptions are declared.
+2) Embed this method call inside of a try block with associated catch blocks.
+Catch every 'throws' clause declared exception and provide a resolution!
+
+How to provide resolution (what we should do inside catch?)
+-> if our code is facing end user, invoke getMessage() on exception and show it to user. 
+Depending on the project, you can log the stack trace to a file before this as well.
+-> if our code is not facing end user, invoke printStackTrace() just for debugging help...
+and throw the exception to the invoker of our code (you can throw a caught exception).
+
+3) If we do not know how to handle the exception that is declared in the throws clause
+of the method that we are going to call, we duck the exception by declaring the same
+in our methods header (that means we do not catch it all...we ask the invoker of our
+method to catch and handle it)
+
+Designer of method:
+1) Identify if method implementation depends on invokers input.
+2) If yes, first code invoker input validation checks. If u i/p v fail, throw
+new IllegalArgumentException("proper msg");
+Do the same for all invokers inputs that are passed
+3) Identify if there is any business logic to be done based on invokers input.
+4) If yes, for every business case logic, do the following:
+   a) Create a custom/user defined subclass of exception (with parameterized constr)
+   b) Create an if block in the method implementation which checks for this business
+   case failure. Inside the if block (that is if the failure happens), create object of
+   this subclass and throw it!
+   c) Whatever checked exceptions are thrown in the method implementation (that is 
+   by using the throw keyword), we should declare in the method header using the 'throws'
+   keyword.
+5) Only after all the business case failure checks have succeeded, we implement 
+business logic code.
+  
+Other best practices:
+1) In user facing code (main() in our case), embed all code in try..catch and have generic catches for catching RuntimeException, Exception and Error. Print the stack trace so that during unit testing we can identify the exact reason for failures if they occur which will help us to fix the code.
+2) Do not ever have empty catches (in any code). At a minimum, print the stack trace. Empty catches gobble exceptions without notifying anyone which is a silent failure.
+3) Do not have specific RuntimeException subclass catches as they occur due to bad code and if you know a subclass of RE can happen, fix the code instead (prevention of exception).
+4) Do not return from finally (as finally gobbles any exceptions that might happen and return normally even though abnormal condition would have occurred in try..catch)!
+
+
+
+
+
