@@ -1,4 +1,4 @@
-package com.paravar.practice.practice6.serialization;
+package com.paravar.practice.practice6.serialization.externalization;
 
 import java.io.*;
 
@@ -10,6 +10,9 @@ public class TestSerialization {
             - to save to a file
             - transmitted over a network
             - otherwise persisted.
+
+            - conversion is handled by JVM
+            - no need to override any methods
 
         De-Serialization:-
             converting byte stream to object
