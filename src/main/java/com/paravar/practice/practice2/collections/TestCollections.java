@@ -8,7 +8,7 @@ public class TestCollections {
         /*
          Note:-
             - Vector & Stack legacy... use ArrayDeque ( Deque )
-            - all the soring collections won't allow null
+            - all the sorting collections won't allow null
                 eg:  PriorityQueue, , TreeSet, TreeMap
 
                  - and also ArrayDeque also won't allow null values

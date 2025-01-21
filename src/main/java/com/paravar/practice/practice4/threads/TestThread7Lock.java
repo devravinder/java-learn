@@ -10,7 +10,7 @@ public class TestThread7Lock {
         ex3();
     }
     public static void ex1(){
-        ReentrantLock rtl = new ReentrantLock(true); // fair = give lock to longest waiting thread
+        ReentrantLock rtl = new ReentrantLock(true); // fair = give lock to the longest waiting thread
         rtl.lock();
         System.out.println(rtl.isLocked());
         System.out.println(rtl.isHeldByCurrentThread());

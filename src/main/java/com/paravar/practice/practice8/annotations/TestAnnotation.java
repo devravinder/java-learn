@@ -2,7 +2,8 @@ package com.paravar.practice.practice8.annotations;
 
 import java.lang.reflect.Method;
 
-public class TestAnnotation {
+public class
+TestAnnotation {
     public static void main(String[] args) throws NoSuchMethodException {
         /*
          Annotations:-

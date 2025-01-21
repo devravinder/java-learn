@@ -5,7 +5,7 @@ public class TestSealedClass {
 
         /*
          Sealed classes:-
-           - A sealed class explicitly defines which classes can inherit from it using the permits keyword.
+           - A sealed class explicitly defines which classes can inherit from it using the permits' keyword.
            - The compiler ensures that no other class outside the specified list can extend the sealed class.
 
            - A permitted subclass must be one of the following:
