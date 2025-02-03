@@ -121,6 +121,8 @@ public class TestStreams {
 
 
         * */
+
+        interviewQuestions();
         // Creating a list of numbers and words
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1,2, 3,4);
         List<String> words = Arrays.asList("apple", "banana", "cherry", "date", "fig", "grape");
@@ -238,6 +240,38 @@ public class TestStreams {
                 .collect(Collectors.groupingBy(String::length));
         System.out.println("Grouped by Length: " + groupedByLength);
         // Output: {3=[fig], 4=[date], 5=[apple, grape], 6=[banana, cherry]}
+    }
+
+
+    public static void interviewQuestions(){
+        filterDuplicateCharStrings();
+    }
+    public static void filterDuplicateCharStrings(){
+        System.out.println("filterDuplicateCharStrings");
+        List<String> strings = Arrays.asList("aaa", "abc", "ccc", "dca", "bbc", "bb", "cbc");
+        // out put => "aaa", "ccc", "bbc", "bb","cbc
+
+        // Filter strings that contain duplicate characters
+        List<String> filteredStrings = strings.stream()
+                .filter(TestStreams::hasDuplicateCharacters)
+                .collect(Collectors.toList());
+
+        System.out.println(filteredStrings);
+    }
+    private static boolean hasDuplicateCharacters(String str) {
+        return str.chars()
+                .distinct()
+                .count() < str.length();
+    }
+
+    private static boolean hasDuplicateCharacters2(String str) {
+        // Group characters and count their occurrences
+        Map<Character, Long> charCounts = str.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
+
+        // Check if any character has a count greater than 1
+        return charCounts.values().stream().anyMatch(count -> count > 1);
     }
 
 

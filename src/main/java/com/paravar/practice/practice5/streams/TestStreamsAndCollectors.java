@@ -36,6 +36,8 @@ public class TestStreamsAndCollectors {
 
         groupByName(users);
 
+        twoSorts(users);
+
     }
 
 
@@ -246,6 +248,18 @@ public class TestStreamsAndCollectors {
                 },
                 acc -> acc[0] // Finisher: Return the final sum as an Integer
         );
+    }
+
+    public static void twoSorts(List<User> users){
+        // first sort by name & then age
+
+       List<User> sorted = users.stream().sorted(
+                Comparator.comparing(User::getName)
+                        .thenComparing(User::getAge)
+        ).toList();
+
+        System.out.println(" sorted "+ sorted);
+
     }
 
 
