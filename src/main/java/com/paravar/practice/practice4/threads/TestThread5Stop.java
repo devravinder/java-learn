@@ -32,6 +32,7 @@ public class TestThread5Stop {
                 }
 
             } catch (InterruptedException e) {
+                System.out.println("InterruptedException");
                 Thread.currentThread().interrupt();
                 //throw new RuntimeException(e);
             }
@@ -39,6 +40,7 @@ public class TestThread5Stop {
         });
         t.start();
         System.out.println(" in main 1");
+
         // t.stop(); // deprecated // can stop any point
         // potentially leaving shared resources in an inconsistent state.
         t.interrupt();
@@ -54,7 +56,7 @@ class Task implements Runnable {
         try {
             int i =0;
             while (running) {
-                System.out.println(" in Task "+ ++i);
+                System.out.println(" in run "+ ++i);
 
                 Thread.sleep(100);
 

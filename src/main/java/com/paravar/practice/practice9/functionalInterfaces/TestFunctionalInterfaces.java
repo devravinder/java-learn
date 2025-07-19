@@ -26,24 +26,30 @@ public class TestFunctionalInterfaces {
 
         * */
 
+        // takes T & returns boolean
         Predicate<Integer> isEven = (x) -> x % 2 == 0;
         System.out.println(isEven.test(4)); // true
 
-
+        // takes T & returns R
         Function<String, Integer> stringLength = (s) -> s.length();  // <arg,return>
         System.out.println(stringLength.apply("Hello")); // 5
 
 
+
+        // takes T & returns void
         Consumer<String> printMessage = (msg) -> System.out.println(msg); // <argtype>
         printMessage.accept("Hello, World!"); // Prints: Hello, World!
 
 
+        // takes no arg & returns R
         Supplier<Double> randomValue = () -> Math.random(); //
         System.out.println(randomValue.get()); // Random value between 0.0 and 1.0
 
+        // same arg & return type & only 1 arg
         UnaryOperator<Integer> square = (x) -> x * x; // it is like function... arg type & return type are sane
         System.out.println(square.apply(5)); // 25
 
+        // same arg & return type & 2 args
         BinaryOperator<Integer> add = (x, y) -> x + y; // function ...with both args & return types are same
         System.out.println(add.apply(5, 10)); // 15
 

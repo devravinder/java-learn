@@ -3,6 +3,8 @@ package com.paravar.practice.practice5.streams;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TestStreams {
@@ -65,7 +67,7 @@ public class TestStreams {
 
         2. Terminal Operations
            These methods trigger the computation and consume the stream.
-            - They can't be chained with another terminal..only one is allowed
+            - They can't be chained with another terminal...only one is allowed
 
           - forEach
               Iterates through each element and performs an action.
@@ -156,7 +158,13 @@ public class TestStreams {
 
         // Test 10: GroupingBy example
         groupingByExample(words);
+        
+        
+        duplicateElements(numbers);
+        findDuplicateChars("abcdefab");
     }
+
+
 
     // Filter method to filter even numbers
     public static void filterExample(List<Integer> numbers) {
@@ -241,6 +249,18 @@ public class TestStreams {
         System.out.println("Grouped by Length: " + groupedByLength);
         // Output: {3=[fig], 4=[date], 5=[apple, grape], 6=[banana, cherry]}
     }
+    private static void duplicateElements(List<Integer> numbers) {
+        // Find duplicates using Streams
+        Set<Integer> duplicates = numbers.stream()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting())) // Count occurrences
+                .entrySet().stream()
+                .filter(entry -> entry.getValue() > 1) // Keep only duplicates
+                .map(Map.Entry::getKey) // Extract duplicate keys
+                .collect(Collectors.toSet()); // Collect as Set to avoid repeated duplicates
+
+        // Print duplicates
+        System.out.println("Duplicate Elements: " + duplicates);
+    }
 
 
     public static void interviewQuestions(){
@@ -272,6 +292,24 @@ public class TestStreams {
 
         // Check if any character has a count greater than 1
         return charCounts.values().stream().anyMatch(count -> count > 1);
+    }
+
+
+    public static void findDuplicateChars(String str){
+
+//        str.chars().collect(Function.identity(), Collectors.counting())
+
+        Set<Character> duplicates =  str.chars()
+                .mapToObj(c->(char)c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .filter(e->e.getValue()>1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet());
+
+        System.out.println(duplicates);
+
+
     }
 
 

@@ -141,7 +141,7 @@ public class TestStreamsAndCollectors {
 
 
         // This version is designed for parallel streams.
-        // It uses an identity value, an accumulator, and a combiner.
+        // It uses an identity(initial value) value, an accumulator, and a combiner.
 
         /*
          Accumulator:

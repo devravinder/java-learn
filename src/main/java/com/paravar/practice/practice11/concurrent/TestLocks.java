@@ -4,7 +4,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
 public class TestLocks {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         /*
          CountDownLatch and CyclicBarrier
@@ -33,8 +33,11 @@ public class TestLocks {
 
         * */
 
+//        countDownLatch();
+        testCyclicBarrier();
     }
-    public static void countDownLatch() throws InterruptedException {
+    public static void countDownLatch() throws InterruptedException
+    {
         CountDownLatch latch = new CountDownLatch(3);
 
         Runnable task = () -> {

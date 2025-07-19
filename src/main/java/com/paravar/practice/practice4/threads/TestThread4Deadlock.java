@@ -12,34 +12,28 @@ public class TestThread4Deadlock {
               System.out.println(" t1 acquired resource1");
               // Thread.sleep(100);
               synchronized (resource2){
-                  System.out.println(" t2 acqyired resource2");
+                  System.out.println(" t1 acquired resource2");
               }
+              System.out.println(" t1 released resource2");
           }
+           System.out.println(" t1 released resource1");
         });
 
         Thread t2 = new Thread(()->{
             synchronized (resource2){
-                System.out.println(" t1 acquired resource2");
+                System.out.println(" t2 acquired resource2");
                 // Thread.sleep(100);
                 synchronized (resource1){
-                    System.out.println(" t2 acqyired resource1");
+                    System.out.println(" t2 acquired resource1");
                 }
+                System.out.println(" t2 released resource1");
+
             }
+            System.out.println(" t2 released resource2");
         });
 
         t1.start();
         t2.start();
-
-    }
-}
-
-class Job implements Runnable {
-    @Override
-    public void run() {
-        System.out.println(" in child 1");
-        synchronized (this){
-            System.out.println("in child 2");
-        }
 
     }
 }

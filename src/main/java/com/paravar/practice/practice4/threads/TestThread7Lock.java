@@ -5,9 +5,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class TestThread7Lock {
     public static void main(String[] args) {
-        //ex1();
-        // ex2();
-        ex3();
+//        ex1();
+         ex2();
+//        ex3();
     }
     public static void ex1(){
         ReentrantLock rtl = new ReentrantLock(true); // fair = give lock to the longest waiting thread
@@ -30,7 +30,7 @@ public class TestThread7Lock {
                 for (int i = 0; i < 2; i++) {
                     lock.lock(); // Acquire the lock
                     try {
-                        System.out.println(Thread.currentThread().getName());
+                        System.out.println(i+" "+ Thread.currentThread().getName());
                     } finally {
                         lock.unlock(); // Release the lock in the `finally` block to avoid deadlock
                     }

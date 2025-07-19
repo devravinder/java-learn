@@ -24,9 +24,14 @@ class ThreadA extends Thread {
     @Override
     public void run() {
 
+        System.out.println(" in Thread before synchronized");
+
         synchronized (this) {
             System.out.println(" in Thread A 1");
             this.notifyAll();  // current thread notifying all the threads who are waiting on this (ThreadA)
+            // this won't release lock & lock will get released after completing synchronized block
+
+
             System.out.println(" in Thread A 2");
         }
 

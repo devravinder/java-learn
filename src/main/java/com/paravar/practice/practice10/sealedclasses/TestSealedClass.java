@@ -1,4 +1,4 @@
-package com.paravar.practice.preactice10.sealedclasses;
+package com.paravar.practice.practice10.sealedclasses;
 
 public class TestSealedClass {
     public static void main(String[] args) {

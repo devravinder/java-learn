@@ -6,7 +6,7 @@ public class TestThread2Join {
             System.out.println("in main 1");
             Thread t = new Thread(new Job1());
             t.start();
-            t.join(); // current thread wait...until t completes its task
+            t.join(); // current thread wait...until it completes its task
             System.out.println(" in main 2");
         }catch (InterruptedException e)
         {
