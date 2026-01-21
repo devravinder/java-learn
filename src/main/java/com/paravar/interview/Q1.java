@@ -1,7 +1,9 @@
 package com.paravar.interview;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Q1 {
     public static void main(String[] args) {
@@ -38,4 +40,24 @@ public class Q1 {
             }
         }
     }
+
+    public static void printDuplicates2(int... arr) {
+
+        Set<Integer> unique = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+
+        for(int i : arr){
+            if(unique.contains(i)){
+                duplicates.add(i);
+            }
+            else {
+                unique.add(i);
+            }
+        }
+
+        System.out.println(duplicates);
+    }
+
+
 }

@@ -13,7 +13,7 @@ public class TestThread9Callable {
     }
     public static void ex1() {
 
-        FutureTask<String> futureTask = new FutureTask<String>(new MessageJob());// ****
+        FutureTask<String> futureTask = new FutureTask<>(new MessageJob());// ****
         Thread t = new Thread(futureTask);
         t.start();
 

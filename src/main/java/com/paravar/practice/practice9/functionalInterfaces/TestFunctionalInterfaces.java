@@ -1,5 +1,6 @@
 package com.paravar.practice.practice9.functionalInterfaces;
 
+import java.util.List;
 import java.util.function.*;
 
 public class TestFunctionalInterfaces {
@@ -25,6 +26,8 @@ public class TestFunctionalInterfaces {
                - BinaryOperator
 
         * */
+
+        ex1();
 
         // takes T & returns boolean
         Predicate<Integer> isEven = (x) -> x % 2 == 0;
@@ -64,6 +67,27 @@ public class TestFunctionalInterfaces {
 
 
 
+
+
+    }
+
+    public static void ex1(){
+        List<String> names = List.of("Ravinder", "Reddy", "Kothabad", "Developer", "Java");
+
+        Predicate<String> startsWithR = (String s)-> s.startsWith("R");
+        Function<String, String> toUpperCase = String::toUpperCase;
+        Consumer<String> print = System.out::println;
+        Supplier<String> notFound = ()->"No names found";
+
+        //
+        names.stream()
+                .filter(startsWithR)
+                .map(toUpperCase)
+                .findFirst()
+                .ifPresentOrElse(print, // consumer
+                        ()->{
+                            print.accept(notFound.get());
+                        });
 
 
     }

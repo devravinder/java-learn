@@ -16,6 +16,7 @@ public class Q5 {
     }
 
     public static void duplicates(Integer[] arr){
+
        Set<Integer> duplicate =  Arrays.stream(arr)
                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()

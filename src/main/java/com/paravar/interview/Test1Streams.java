@@ -1,4 +1,4 @@
-package com.paravar.interview.practice.jul2025;
+package com.paravar.interview;
 
 import java.util.*;
 import java.util.function.Function;
@@ -146,23 +146,27 @@ public class Test1Streams {
         //-------------
 
         // Binary operator
-        User elder = users.stream().reduce( (pre, cur)->pre.getAge() > cur.getAge() ? pre : cur)
+        User elder = users.stream()
+                .reduce( (pre, cur)->pre.getAge() > cur.getAge() ? pre : cur)
                 .orElse(null);
 
         System.out.println("elder "+ elder);
 
 
-        User elder2 = users.stream().reduce(null, (pre, cur)-> null == pre ? cur : pre.getAge() > cur.getAge() ? pre : cur);
+        User elder2 = users.stream()
+                .reduce(null, (pre, cur)-> null == pre ? cur : pre.getAge() > cur.getAge() ? pre : cur);
         System.out.println("elder2 " + elder2);
 
         // identity(starting value), accumulator, combiner
         // ****
-        String allNames = users.parallelStream().reduce("",(pre, cur)->pre + " "+ cur.getName(), (p1,p2)-> p1+p2);
+        String allNames = users.parallelStream()
+                .reduce("",(pre, cur)->pre + " "+ cur.getName(), (p1,p2)-> p1+p2);
         System.out.println("allNames "+ allNames);
         
 
         //   int ageSum = users.stream().reduce(0,(pre, cur)-> pre+ cur.getAge(), (partial1,partial2)-> partial1+partial2);
-        int ageSum = users.stream().reduce(0,(pre, cur)-> pre+ cur.getAge(), Integer::sum);
+        int ageSum = users.stream()
+                .reduce(0,(pre, cur)-> pre+ cur.getAge(), Integer::sum);
                                              // combiner: sum of partial results // used in parallel streams
 
         System.out.println("ageSum "+ ageSum);

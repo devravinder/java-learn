@@ -8,7 +8,7 @@ public class TestThread10ThreadLocal {
          ThreadLocal:-
              - to define thread specific local data
              - only thread scope
-             - ony objects are allowed ...no primitive values
+             - only objects are allowed ...no primitive values
              - if thread dies...the data is eligible for GC
              - very useful...when thread level data storage required
                  - eg: every request in Servlet...need to store req.Id

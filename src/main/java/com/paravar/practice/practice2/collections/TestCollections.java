@@ -45,7 +45,7 @@ public class TestCollections {
             - types:
                 - Hash Set     - hash table, no order
                 - Linked Hash  - hash table, doubly linked list, insertion order
-                - Tree Set     - red black tree, sorted ( natural sort by deafult )
+                - Tree Set     - red black tree, sorted ( natural sort by default )
         */
         System.out.println("=============Set=========");
 
