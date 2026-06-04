@@ -162,6 +162,8 @@ public class TestStreams {
         
         duplicateElements(numbers);
         findDuplicateChars("abcdefab");
+
+        sortByOccurrence("Hi Hello How are you Hi Thanks are you Ok. Hello");
     }
 
 
@@ -308,6 +310,23 @@ public class TestStreams {
                 .collect(Collectors.toSet());
 
         System.out.println(duplicates);
+
+
+    }
+
+    public static void sortByOccurrence(String str){
+
+        List<String> words = List.of(str.split(" "));
+
+        words.stream().collect(Collectors.groupingBy(
+                        Function.identity(),
+                        Collectors.counting())).entrySet()
+                        .stream()
+                       .sorted((a, b) -> {
+                        int freqCompare = b.getValue().compareTo(a.getValue());
+                        return (freqCompare != 0) ? freqCompare : a.getKey().compareTo(b.getKey());
+                        })
+                    .forEach(e -> System.out.println(e.getKey() + " -> " + e.getValue()));
 
 
     }
